@@ -10,6 +10,7 @@
             <li>{{ $error }}</li>
             @endforeach
         </ul>
+        
         {{ Form::label('firstname', 'Voornaam: '); }}
         {{ Form::text('firstname', null, array('class'=>'input-block-level', 'placeholder'=>'Voornaam')) }}<br>
         {{ Form::label('lastname', 'Naam: '); }}

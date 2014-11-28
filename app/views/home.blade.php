@@ -3,6 +3,21 @@
 @section('content')
 <!--begin inhoud-->
 
+<!-- facebook like buttons -->
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id))
+            return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+    (document, 'script', 'facebook-jssdk'));
+</script>
+<!-- einde facebook buttons -->
+
 <div class="container" id="content" style="min-height:700px">
     <figure id="carousel">
         <div class="jumbotron">
@@ -29,10 +44,10 @@
             </div>
         </div> 
     </figure>
-
     <main>
         <div class="container content_home">
             <h1>Nieuws</h1>
+            <div class="fb-like float_right" data-href="https://www.facebook.com/events/685580554852792/?fref=ts" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
             <h2>Word onze vriend op Facebook!</h2>
             <p>Voeg 'WVA vzw' toe als vriend op Facebook om steeds van alle nieuwtjes op de hoogte te blijven! BENEFIETFEEST WVA Vzw</p>
             <p>Zoals je vast weet, veranderde WVA vzw onlangs van naam. Voortaan heten we niet langer Werkgroep Vorming en Aktie.</p>

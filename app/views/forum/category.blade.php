@@ -4,6 +4,11 @@
     <div class="navbar">
         <div class="jumbotron" style="min-height:700px">
             <div class="container">
+                @if(Session::has('success'))
+                <div class="alert alert-success">{{ Session::get('success') }}</div>
+                @elseif (Session::has('fail'))
+                <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+                @endif
                 <ol class="breadcrumb">
                     <li><a href="{{ URL::route('forum-home') }}">Forums</a></li>
                     <li class="active">{{ $category->title }}</li>
@@ -82,7 +87,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/js/forumjs.js"></script>
+<script type="text/javascript" src="/scrum/public/bootstrap/js/forumjs.js"></script>
 @if(Session::has('modal'))
 <script type="text/javascript">
 $("{{Session::get('modal')}}").modal('show');

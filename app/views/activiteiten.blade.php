@@ -5,10 +5,13 @@
 
 <div class="jumbotron container cf" id="content">
     <main>
+        @if (Auth::check() && Auth::user()->isAdmin())
         {{ Form::open(array('url'=>'add', 'method'=>'get')) }}
-        {{ Form::submit('Gegevens Aanpassen', array('class'=>'send-btn')) }}
+        {{ Form::submit('Activiteit toevoegen', array('class'=>'send-btn')) }}
         {{ Form::close() }}
-
+        @else
+        
+        @endif
         <h1 class="hoofding">Hieronder vind u info over de activiteiten:</h1>
         <div id="datepicker">
             <label for="from">Van</label>

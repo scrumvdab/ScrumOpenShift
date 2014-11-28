@@ -1965,5 +1965,55 @@
             "laravel",
             "parser"
         ]
+    },
+    {
+        "name": "smalldogs/html5inputs",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/smalldogs/html5inputs.git",
+            "reference": "14e49dc0e2779276ca0d8bb13e540cc3c1f95531"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/smalldogs/html5inputs/zipball/14e49dc0e2779276ca0d8bb13e540cc3c1f95531",
+            "reference": "14e49dc0e2779276ca0d8bb13e540cc3c1f95531",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "4.2.*",
+            "php": ">=5.4.0"
+        },
+        "time": "2014-11-20 00:00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Smalldogs\\Html5inputs": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Dustin Brownell",
+                "email": "dustin@smalldo.gs",
+                "homepage": "https://www.smalldo.gs"
+            }
+        ],
+        "description": "Adds support for all 11 remaining HTML5 elements (Laravel already supports 2 out of the box) using Laravels 4.2 Form interface (e.g. Form::date())",
+        "homepage": "https://blog.smalldo.gs/2014/04/laravel-4-html5-input-elements/",
+        "keywords": [
+            "HTML5",
+            "extend",
+            "form",
+            "form builder",
+            "helper",
+            "input",
+            "laravel"
+        ]
     }
 ]

@@ -11,29 +11,38 @@ class AddActivities extends Migration {
      * @return void
      */
     public function up() {
-        DB::table('activities')->insert(array(
-            'title' => 'Artikel 1',
+         DB::table('activities')->insert(array(
+            'title' => 'Frietjes boefen',
             'body' => 'Dit is een test, blablablabla',
-            'date' => '2014/11/12',
-            'time' => '11:00',
+            'place' => 'Wevelgem',
+            'date_start' => '2014/11/12',
+            'date_end' => '2014/11/13',
+            'time_start' => '11:00',
+            'time_end' => '12:00',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
         ));
 
         DB::table('activities')->insert(array(
-            'title' => 'Artikel 2',
+            'title' => 'Fietstocht',
             'body' => 'Dit is ook een test, woooooooooooooop',
-            'date' => '2014/11/12',
-            'time' => '12:00',
+            'place' => 'Ardennen',
+            'date_start' => '2014/12/12',
+            'date_end' => '2014/12/13',
+            'time_start' => '11:30',
+            'time_end' => '18:00',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
         ));
 
         DB::table('activities')->insert(array(
-            'title' => 'Artikel 3',
+            'title' => 'Feestje voor de toffe mensen',
             'body' => 'Dit is nog een test, mimimimimimimimimimimimimi',
-            'date' => '2014/11/12',
-            'time' => '12:30',
+            'place' => 'CC de coole kikker, Kortrijk',
+            'date_start' => '2014/11/13',
+            'date_end' => '2014/11/15',
+            'time_start' => '12:00',
+            'time_end' => '13:00',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
         ));

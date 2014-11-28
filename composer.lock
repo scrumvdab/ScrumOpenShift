@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2a812edd6717fe5257eaf6b92bfd8f90",
+    "hash": "683eefe37e4ef01f388ea428a20f8340",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -915,6 +915,54 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "smalldogs/html5inputs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smalldogs/html5inputs.git",
+                "reference": "14e49dc0e2779276ca0d8bb13e540cc3c1f95531"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smalldogs/html5inputs/zipball/14e49dc0e2779276ca0d8bb13e540cc3c1f95531",
+                "reference": "14e49dc0e2779276ca0d8bb13e540cc3c1f95531",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.2.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Smalldogs\\Html5inputs": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Dustin Brownell",
+                    "email": "dustin@smalldo.gs",
+                    "homepage": "https://www.smalldo.gs"
+                }
+            ],
+            "description": "Adds support for all 11 remaining HTML5 elements (Laravel already supports 2 out of the box) using Laravels 4.2 Form interface (e.g. Form::date())",
+            "homepage": "https://blog.smalldo.gs/2014/04/laravel-4-html5-input-elements/",
+            "keywords": [
+                "HTML5",
+                "extend",
+                "form",
+                "form builder",
+                "helper",
+                "input",
+                "laravel"
+            ],
+            "time": "2014-11-20 18:27:11"
         },
         {
             "name": "stack/builder",
@@ -1911,7 +1959,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "zizaco/confide": 20,
-        "thujohn/pdf": 20
+        "thujohn/pdf": 20,
+        "smalldogs/html5inputs": 20
     },
     "prefer-stable": false,
     "platform": [],

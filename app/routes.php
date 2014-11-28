@@ -46,7 +46,7 @@ Route::get('links', [
 
 //authentication
 Route::controller('user', 'UserController');
- 
+
 // active link
 HTML::macro('clever_link', function($route, $text) {
     if (Request::path() == $route) {
@@ -79,6 +79,7 @@ Route::group(array('prefix' => '/forum'), function() {
         Route::get('/group/{id}/delete', array('uses' => 'ForumController@deleteGroup', 'as' => 'forum-delete-group'));
         Route::get('/category/{id}/delete', array('uses' => 'ForumController@deleteCategory', 'as' => 'forum-delete-category'));
         Route::get('/thread/{id}/delete', array('uses' => 'ForumController@deleteThread', 'as' => 'forum-delete-thread'));
+        Route::get('/comment/{id}/delete', array('uses' => 'ForumController@deleteComment', 'as' => 'forum-delete-comment'));
 
         Route::group(array('before' => 'csrf'), function() {
             Route::post('/category/{id}/new', array('uses' => 'ForumController@storeCategory', 'as' => 'forum-store-category'));
@@ -91,6 +92,7 @@ Route::group(array('prefix' => '/forum'), function() {
 
         Route::group(array('before' => 'csrf'), function() {
             Route::post('/thread/{id}/new', array('uses' => 'ForumController@storeThread', 'as' => 'forum-store-thread'));
+            Route::post('/comment/{id}/new', array('uses' => 'ForumController@storeComment', 'as' => 'forum-store-comment'));
         });
     });
 });
@@ -111,3 +113,5 @@ Route::group(array('before' => 'auth'), function() {
 });
 
 Route::get('add', 'ActiviteitenController@add');
+
+Route::get('add_activity', 'ActiviteitenController@add_activity');

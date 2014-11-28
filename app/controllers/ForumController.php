@@ -54,7 +54,6 @@ class ForumController extends BaseController {
         if ($group == null) {
             return Redirect::route('forum-home')->with('fail', 'Deze groep bestaat niet.');
         }
-
         $categories = $group->categories();
         $threads = $group->threads();
         $comments = $group->comments();
@@ -167,23 +166,64 @@ class ForumController extends BaseController {
 
     public function deleteThread($id) {
         $thread = ForumThread::find($id);
-        if ($thread == null)
+        if ($thread == null) {
             return Redirect::route('forum-home')->with('fail', "Deze thread bestaat niet");
+        }
 
         $category_id = $thread->category_id;
-        $comments = $thread->comments;
+        $comments = $thread->comments();
         if ($comments->count() > 0) {
-            if ($comments->delete() && $thread->delete())
+            if ($comments->delete() && $thread->delete()) {
                 return Redirect::route('forum-category', $category_id)->with('success', "De thread werd verwijderd.");
-            else
+            } else {
                 return Redirect::route('forum-category', $category_id)->with('fail', "Er heeft zich een error voorgedaan bij het verwijderen van uw thread.");
-        }
-        else {
-            if ($thread->delete())
+            }
+        } else {
+            if ($thread->delete()) {
                 return Redirect::route('forum-category', $category_id)->with('success', "De thread werd verwijderd.");
-            else
+            } else {
                 return Redirect::route('forum-category', $category_id)->with('fail', "Er heeft zich een error voorgedaan bij het verwijderen van uw thread.");
+            }
         }
     }
 
+    /* Comments toegevoegd 21/11/2014 Maarten */
+
+    public function storeComment($id) {
+        $thread = ForumThread::find($id);
+        if ($thread == null)
+            Redirect::route('forum')->with('fail', "That thread does not exist.");
+        $validator = Validator::make(Input::all(), array(
+                    'body' => 'required|min:5'
+        ));
+        if ($validator->fails())
+            return Redirect::route('forum-thread', $id)->withInput()->withErrors($validator)->with('fail', "Vul het formulier correct in.");
+        else {
+            $comment = new ForumComment();
+            $comment->body = Input::get('body');
+            $comment->author_id = Auth::user()->id;
+            $comment->thread_id = $id;
+            $comment->category_id = $thread->category->id;
+            $comment->group_id = $thread->group->id;
+            if ($comment->save())
+                return Redirect::route('forum-thread', $id)->with('success', "Uw commentaar werd opgeslagen.");
+            else
+                return Redirect::route('forum-thread', $id)->with('fail', "Er heeft zich een fout voorgedaan bij het opslaan van uw comment.");
+        }
+    }
+
+    public function deleteComment($id) {
+        $comment = ForumComment::find($id);
+        if ($comment == null) {
+            return Redirect::route('forum-home')->with('fail', "Deze comment bestaat niet.");
+        }
+        $threadid = $comment->thread_id;
+        if ($comment->delete()) {
+            return Redirect::route('forum-thread', $threadid)->with('success', "De comment werd verwijderd.");
+        } else {
+            return Redirect::route('forum-thread', $threadid)->with('fail', "Er heeft zich een fout voorgedaan bij het verwijderen van uw comment.");
+        }
+    }
+
+    /* Comments toegevoegd 21/11/2014 Maarten */
 }

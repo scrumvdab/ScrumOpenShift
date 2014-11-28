@@ -33,7 +33,6 @@
         {{ Form::label('banknr', 'Rekeningnummer: '); }}
         {{ Form::text('banknr', Input::old('banknr', $user->banknr), array('class'=>'input-block-level', 'placeholder'=>'Rekeningnummer')) }}<br>
 
-
         {{ Form::submit('Aanpassen', array('class'=>'btn btn-primary'))}}
         {{ Form::close() }}
     </div>

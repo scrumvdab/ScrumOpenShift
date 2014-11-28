@@ -4,23 +4,39 @@
 
 
 <div class="jumbotron container cf" id="content">
-    <div id="datepicker1" class="form-group">
+    <div id="datepicker1" class="form-group add_activity">
+        
+        
+        {{ Form::open(array('url'=>'add_activity', 'class'=>'form-signup', 'method' => 'get')) }}
         <h2>Activiteiten toevoegen</h2>
-        {{ Form::open(array('url'=>'activiteiten/change', 'class'=>'form-signup')) }}
-        {{ Form::label('title', 'Naam: '); }}<br>
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        
+        {{ Form::label('title', 'Naam: '); }}
         {{ Form::text('title', null, array('class'=>'input-block-level', 'placeholder'=>'Naam activiteit')) }}<br>
-        {{ Form::label('body', 'Beschrijving: '); }}<br>
-        {{ Form::textarea('body', null, array('style' => 'width: 100%')) }}<br>
-        {{ Form::label('begin', 'Begin: '); }}<br>
-        {{ Form::text('begin', null, array('class'=>'input-block-level', 'placeholder'=>'Begin activiteit', 'id' => 'begin')) }}<br>
-        {{ Form::label('beginuur', 'Beginuur: '); }}
-        {{ Form::text('beginuur', null, array('class'=>'input-block-level', 'placeholder'=>'Beginuur activiteit')) }}<br>
-        {{ Form::label('einde', 'Einde: '); }}<br>
-        {{ Form::text('einde', null, array('class'=>'input-block-level', 'placeholder'=>'Einde activiteit', 'id' => 'einde')) }}<br>
-        {{ Form::label('einduur', 'Einduur: '); }}
-        {{ Form::text('einduur', null, array('class'=>'input-block-level', 'placeholder'=>'Beginuur activiteit')) }}<br>
+        {{ Form::label('place', 'Plaats: '); }}
+        {{ Form::text('place', null, array('class'=>'input-block-level', 'placeholder'=>'Plaats activiteit')) }}<br>
+        {{ Form::label('body', 'Beschrijving: '); }}
+        {{ Form::textarea('body', null, array('style' => 'width: 80%')) }}<br>
+        {{ Form::label('date_start', 'Begin datum: '); }}
+        {{ Form::date('date_start', null, array('class'=>'input-block-level', 'placeholder'=>'Begin activiteit')) }}<br>
+        {{ Form::label('time_start', 'Beginuur: '); }}
+        {{ Form::time('time_start', null, array('class'=>'input-block-level', 'placeholder'=>'Beginuur activiteit')) }}<br>
+        {{ Form::label('date_end', 'Eind datum: '); }}
+        {{ Form::date('date_end', null, array('class'=>'input-block-level', 'placeholder'=>'Einde activiteit')) }}<br>
+        {{ Form::label('time_end', 'Einduur: '); }}
+        {{ Form::time('time_end', null, array('class'=>'input-block-level', 'placeholder'=>'Beginuur activiteit')) }}<br>
+        
+        <div id="success"> </div>
+        {{ Form::submit('Post activiteit', array('class'=>'btn btn-primary'))}}
         {{ Form::close() }}
+        <!--
         {{ Form::open(array('url'=>'test','method'=>'post', 'files'=>true)) }}
+        
+    
         <div class="control-group">
             <div class="controls">
                 {{ Form::file('image') }}
@@ -30,9 +46,12 @@
                 @endif
             </div>
         </div>
+        
+        
         <div id="success"> </div>
-        {{ Form::submit('Bevestig input', array('class'=>'btn btn-primary'))}}
+        {{ Form::submit('Post Activiteit', array('class'=>'btn btn-primary'))}}
         {{ Form::close() }}
+       -->
     </div>
 </div>
 

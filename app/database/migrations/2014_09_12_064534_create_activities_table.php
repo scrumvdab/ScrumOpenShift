@@ -13,10 +13,13 @@ class CreateActivitiesTable extends Migration {
     public function up() {
         Schema::create('activities', function($table) {
             $table->increments('id');
-            $table->date('date');
-            $table->time('time');
+            $table->date('date_start');
+            $table->date('date_end');
+            $table->time('time_start');
+            $table->time('time_end');
             $table->string('title');
             $table->text('body');
+            $table->text('place');
             $table->timestamps();
         });
     }

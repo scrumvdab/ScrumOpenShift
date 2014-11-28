@@ -4,6 +4,11 @@
     <div class="navbar">
         <div class="jumbotron" style="min-height:700px">
             <div class="container">
+                @if(Session::has('success'))
+                <div class="alert alert-success">{{ Session::get('success') }}</div>
+                @elseif (Session::has('fail'))
+                <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+                @endif
                 <h1>Nieuw onderwerp</h1>
 
                 <form action="{{ URL::route('forum-store-thread', $id) }}" method="post">

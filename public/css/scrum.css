@@ -113,7 +113,7 @@ header, header #header, #header .container{
     width:100%;
     margin:0;
     padding:1em;
-    min-height: 700px;
+   // min-height: 700px;
 }
 #contactgegevens p{
     color:#015965;
@@ -146,6 +146,10 @@ label{
 
 .float_center{
     margin-left: 20%;
+}
+
+.float_right{
+    float:right;
 }
 /******************************************************************************/
 /* --- contact --- */
@@ -425,6 +429,16 @@ footer.container{
     width: 100%;
     margin-top: 1em;
     margin-bottom: 0.5em;
+}
+/******************************************************************************/
+/* Opmaak activiteiten */
+.add_activity form label{
+    float: left;
+    width: 150px;
+} 
+
+.add_activity form input{
+   margin-bottom: 10px;
 }
 /******************************************************************************/
 /* Maarten  */

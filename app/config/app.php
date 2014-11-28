@@ -108,8 +108,8 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Zizaco\Confide\ServiceProvider',
         'Golonka\BBCode\BBCodeParserServiceProvider', 
-        'Thujohn\Pdf\PdfServiceProvider'
-        
+        'Thujohn\Pdf\PdfServiceProvider',
+        'Smalldogs\Html5inputs\Html5InputsServiceProvider',
     ),
     /*
       |--------------------------------------------------------------------------

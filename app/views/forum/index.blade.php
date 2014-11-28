@@ -4,6 +4,11 @@
     <div class="navbar">
         <div class="jumbotron" style="min-height:700px">
             <div class="container">
+                @if(Session::has('success'))
+<div class="alert alert-success">{{ Session::get('success') }}</div>
+@elseif (Session::has('fail'))
+<div class="alert alert-danger">{{ Session::get('fail') }}</div>
+@endif
                 @if (Auth::check() && Auth::user()->isAdmin())
                 <a href="#" class="btn btn-default" data-toggle="modal" data-target="#group_form">Voeg groep toe</a>
                 @endif

@@ -13,7 +13,7 @@
         {{ HTML::script("http://code.jquery.com/jquery.js") }}
         {{ HTML::script("js/jquery-live-preview.js") }}
     </head>
-    <body>
+    <body>      
         <div id="wrapper">
             <header>
                 <div class="container" id="header">
@@ -51,8 +51,9 @@
                         @endif
                     </div>
                 </div>
+                
             </header>
-            
+
             <div class="container" id="navigation">
                 <nav id="navbar" class="navbar navbar-default" role="navigation">
                     <div class="navbar-header">

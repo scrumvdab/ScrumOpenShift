@@ -7,7 +7,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 use Codesleeve\Stapler\ORM\StaplerableInterface;
 use Codesleeve\Stapler\ORM\EloquentTrait;
 
-class User extends Eloquent implements UserInterface, RemindableInterface{
+class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public static $rules = array(
         'firstname' => 'required|alpha|min:2',
@@ -20,6 +20,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface{
 
     use UserTrait,
         RemindableTrait;
+
     /**
      * The database table used by the model.
      *

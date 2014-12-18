@@ -34,7 +34,7 @@
                             <p class="errors">{{ Session::get('error') }}</p>
                             @endif
                         </div>
-                        <p style="font-size:14px;">Afbeelding enkel van het type .jpg en max 10MB groot!</p> 
+                        <p style="font-size:14px;">Afbeelding enkel van het type .jpg, min 3KB en max 5MB groot!</p> 
                     </div>
                     <div id="success"> </div>
                     {{ Form::submit('Verzenden', array('class'=>'send-btn')) }}

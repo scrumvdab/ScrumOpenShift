@@ -4,17 +4,10 @@
 
 
 <div class="jumbotron container cf" id="content">
-    <div id="datepicker1" class="form-group add_activity">
-        
-        
-        {{ Form::open(array('url'=>'add_activity', 'class'=>'form-signup', 'method' => 'get')) }}
+    <div id="datepicker1" class="form-group">
         <h2>Activiteiten toevoegen</h2>
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-        
+        {{ Form::open(array('url'=>'add_activity', 'class'=>'form-signup', 'method' => 'get')) }}
+       <!-- {{ Form::open(array('url'=>'activiteiten/change', 'class'=>'form-signup')) }}-->
         {{ Form::label('title', 'Naam: '); }}
         {{ Form::text('title', null, array('class'=>'input-block-level', 'placeholder'=>'Naam activiteit')) }}<br>
         {{ Form::label('place', 'Plaats: '); }}
@@ -29,14 +22,8 @@
         {{ Form::date('date_end', null, array('class'=>'input-block-level', 'placeholder'=>'Einde activiteit')) }}<br>
         {{ Form::label('time_end', 'Einduur: '); }}
         {{ Form::time('time_end', null, array('class'=>'input-block-level', 'placeholder'=>'Beginuur activiteit')) }}<br>
-        
-        <div id="success"> </div>
-        {{ Form::submit('Post activiteit', array('class'=>'btn btn-primary'))}}
         {{ Form::close() }}
-        <!--
         {{ Form::open(array('url'=>'test','method'=>'post', 'files'=>true)) }}
-        
-    
         <div class="control-group">
             <div class="controls">
                 {{ Form::file('image') }}
@@ -46,12 +33,9 @@
                 @endif
             </div>
         </div>
-        
-        
         <div id="success"> </div>
-        {{ Form::submit('Post Activiteit', array('class'=>'btn btn-primary'))}}
+        {{ Form::submit('Bevestig input', array('class'=>'btn btn-primary'))}}
         {{ Form::close() }}
-       -->
     </div>
 </div>
 

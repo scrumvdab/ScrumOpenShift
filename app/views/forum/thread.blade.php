@@ -1,14 +1,23 @@
 @extends('templates.default')
 @section('content')
+
 <div class="container" id="content">
     <div class="navbar">
         <div class="jumbotron" style="min-height:700px">
             <div class="container">
-                @if(Session::has('success'))
-                <div class="alert alert-success">{{ Session::get('success') }}</div>
-                @elseif (Session::has('fail'))
-                <div class="alert alert-danger">{{ Session::get('fail') }}</div>
-                @endif
+                <div id="popup_warning">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success alert-dismissible " role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        {{ Session::get('success') }}
+                    </div>
+                    @elseif (Session::has('fail'))
+                    <div class="alert alert-fail alert-dismissible " role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        {{ Session::get('fail') }}
+                    </div>
+                    @endif
+                </div>
                 <div class="clearfix">
                     <ol class="breadcrumb pull-left">
                         <li><a href="{{ URL::route('forum-home') }}">Forums</a></li>
@@ -38,14 +47,27 @@
                 <div class="well" style="overflow:auto;">
                     <div class="pull-right">
                         <h4>Verzonden door: {{ $comment->author->username }} op {{ $comment->created_at }}</h4>
-                        <img style="border:1px red; height:100px; width:100px; float:right;" src="/Scrum/public/uploads/{{$user = DB::table('users')->where('id', $comment->author_id)->first()->id}}.jpg">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+                        <img style="border:1px red; height:100px; width:100px; float:right;" src="/Scrum/public/uploads/{{$user = DB::table('users')->where('id', $comment->author_id)->first()->id}}.jpg"/>
                         <br>
                     </div>
+                    <!-- code like dislike -->
+                    <div class='ld-container'>
+                        {{ Form::open(array('url'=>'vote', 'tid'=>'demo1')) }}
+                        <div style='float:left;'>
+                            {{ Form::image('like_dislike/images/thumbs-up-s.png', 'I like it', ['class' => 'ld-btn-like']) }}
+                            {{ Form::image('like_dislike/images/thumbs-down-s.png', 'I dislike it', ['class' => 'ld-btn-dislike']) }}
+                        </div>
+                        <div style='float:right;'>
+                            <div class='ld-stats-bar'></div>
+                            <span class='ld-stats-txt'></span>
+                        </div>
+                        <div class='ld-clear-both'></div>
+                        <button type="button" class='ld-btn-reset' title='Reset it'>
+                            Reset Cookie
+                        </button>
+                        {{ Form::close() }}
+                    </div>
+                    <!-- einde like dislike -->
                     <p>{{ nl2br(BBCode::parse($comment->body)) }}</p>
                     @if (Auth::check() && Auth::user()->isAdmin())
                     <a href="{{ URL::route('forum-delete-comment', $comment->id) }}" class="btn btn-danger">Verwijder commentaar</a>
@@ -67,11 +89,14 @@
                     </div>
                 </form>
                 @endif
-
             </div>
         </div>
     </div>
 </div>
+
+{{ HTML::script ('like_dislike/jquery.js') }}
+{{ HTML::script ('like_dislike)/ajax_likes.js') }}
 {{ HTML::script('http://code.jquery.com/jquery-2.1.1.min.js') }}
-{{ HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
+{{HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')}}
+
 @stop

@@ -43,7 +43,7 @@ class UserController extends BaseController {
 
     public function postSignin() {
         if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')))) {
-            return Redirect::to('user/dashboard')->with('message', 'Je bent nu aangemeld!');
+            return Redirect::to('/')->with('message', 'Je bent nu aangemeld!');
         } else {
             return Redirect::to('user/login')
                             ->with('message', 'Je invoer is fout, probeer opnieuw!')

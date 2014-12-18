@@ -7,39 +7,44 @@
     <main>
         @if (Auth::check() && Auth::user()->isAdmin())
         {{ Form::open(array('url'=>'add', 'method'=>'get')) }}
-        {{ Form::submit('Activiteit toevoegen', array('class'=>'send-btn')) }}
+        {{ Form::submit('Activiteiten toevoegen', array('class'=>'send-btn')) }}
         {{ Form::close() }}
-        @else
-        
+        <br>
+        {{ Form::open(array('url'=>'upload_fotos', 'method'=>'get')) }}
+        {{ Form::submit("Foto's toevoegen" , array('class'=>'send-btn')) }}
+        {{ Form::close() }}
         @endif
         <h1 class="hoofding">Hieronder vind u info over de activiteiten:</h1>
         <div id="datepicker">
             <label for="from">Van</label>
             <input type="text" id="from" name="from">
         </div>
-        <!-- <div id='wrap' class="cf">
-             <div id='external-events' class="cf">
-                 <h4>Verplaatsbare evenementen</h4>
-                 <div class='fc-event'>Evenement 1</div>
-                 <div class='fc-event'>Evenement 2</div>
-                 <div class='fc-event'>Evenement 3</div>
-                 <div class='fc-event'>Evenement 4</div>
-                 <div class='fc-event'>Evenement 5</div>
-                 <p>
-                     <input type='checkbox' id='drop-remove' />
-                     <label for='drop-remove'>verwijder na verslepen</label>
-                 </p>
-             </div>
-             <div id='calendar'> </div>
-         </div>
-        -->
         <div id="activiteiten">
-            @foreach($activities as $activity)
-            <h2> {{ $activity->id }} {{ $activity->title }} </h2>
-            <h3> {{ $activity->body }} </h3>
-            <p>Gemaakt op: {{ $activity->created_at }} </p>
-            <p>Laatst gewijzigd op: {{ $activity->created_at }} </p>
-            @endforeach
+            <div id="accordion">
+                @foreach($activities as $activity)
+                <h3><a href="#"> {{ $activity->title }} te {{ $activity->place }} <br>
+                        van {{ $activity->time_start }} u op {{ $activity->date_start }} tot {{ $activity->time_end }} u op {{ $activity->date_end }} </a></h3>
+                <div id="content_accordion">
+                    <div id="foto_button" style="float:right;">
+                        {{ Form::open(array('url'=>'galery', 'method'=>'get')) }}
+                        {{ Form::submit("Bekijk foto's", array('class'=>'send-btn')) }}
+                        {{ Form::close() }}
+                    </div>
+                    <div id="edit_activity_button" style="float:right;">
+                        {{ Form::open(array('url'=>'edit', 'method'=>'put')) }}
+                        {{ Form::submit("aanpassen", array('class'=>'send-btn')) }}
+                        {{ Form::close() }}
+                    </div>
+                    <div id="accordion_body">
+                        {{ $activity->body }}
+                    </div>
+                    <div id="accordion_timestamps">
+                        Gemaakt op: {{ $activity->created_at }}<br>
+                        Laatst gewijzigd op: {{ $activity->updated_at }} 
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
     </main>
 </div>
@@ -83,6 +88,14 @@
         });
     });
 </script>
+<script>$(function () {
+        $("#accordion").accordion({
+            active: false,
+            collapsible: true,
+            heightStyle: "content"
+        });
+    });</script>
+
 <!--
 <script type="text/javascript">
     $(document).ready(function () {

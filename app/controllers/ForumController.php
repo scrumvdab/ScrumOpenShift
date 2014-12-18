@@ -11,6 +11,7 @@ class ForumController extends BaseController {
 
     public function category($id) {
         $category = ForumCategory::find($id);
+
         if ($category == null) {
             return Redirect::route('forum-home')->with('fail', "Deze categorie bestaat niet.");
         }
@@ -21,6 +22,7 @@ class ForumController extends BaseController {
 
     public function thread($id) {
         $thread = ForumThread::find($id);
+        $comments = ForumComment::all();
         if ($thread == null) {
             return Redirect::route('forum-home')->with('fail', "Deze thread bestaat niet.");
         }
@@ -147,7 +149,7 @@ class ForumController extends BaseController {
         ));
 
         if ($validator->fails()) {
-            return Redirect::route('forum-get-new-thread', $id)->withInput()->withErrors($validator)->with('fail', "Uw input voldoet niet aan de vereiste voorwaarden.");
+            return Redirect::route('forum-get-new-thread', $id)->withInput()->withErrors($validator)->with('fail', "Uw input voldoet niet aan de vereiste voorwaarden.  <br> Uw titel dient minstens 3 karakters te bevatten. <br> De boodschap dient minstens 10 karakters te bevatten.");
         } else {
             $thread = new ForumThread;
             $thread->title = Input::get('title');
@@ -197,7 +199,7 @@ class ForumController extends BaseController {
                     'body' => 'required|min:5'
         ));
         if ($validator->fails())
-            return Redirect::route('forum-thread', $id)->withInput()->withErrors($validator)->with('fail', "Vul het formulier correct in.");
+            return Redirect::route('forum-thread', $id)->withInput()->withErrors($validator)->with('fail', "Vul uw boodschap correct in. <br> Uw boodschap werd niet bewaard.  <br> Uw boodschap dient minstens 5 karakters te bevatten.");
         else {
             $comment = new ForumComment();
             $comment->body = Input::get('body');
@@ -226,4 +228,9 @@ class ForumController extends BaseController {
     }
 
     /* Comments toegevoegd 21/11/2014 Maarten */
+    
+    public function vote() {
+        
+    }
 }
+

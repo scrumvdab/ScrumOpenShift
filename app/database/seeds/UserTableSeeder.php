@@ -3,11 +3,6 @@
 class UserTableSeeder extends Seeder {
 
     public function run() {
-        DB::table('users')->delete();
-        DB::table('forum_categories')->delete();
-        DB::table('forum_comments')->delete();
-        DB::table('forum_groups')->delete();
-        DB::table('forum_threads')->delete();
         // aanmaak users
         User::create(array(
             'username' => 'ValentinoGahide',
@@ -79,90 +74,6 @@ class UserTableSeeder extends Seeder {
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
         ));
-
-
-// aanmaak forum_groups
-        /*
-        ForumGroup::create(array(
-            'id' => 0,
-            'title' => 'General discussion3',
-            'author_id' => 1
-        ));
-        ForumGroup::create(array(
-            'id' => 1,
-            'title' => 'General discussion',
-            'author_id' => 2
-        ));
-        ForumGroup::create(array(
-            'id' => 2,
-            'title' => 'General discussion1',
-            'author_id' => 3
-        ));
-        ForumGroup::create(array(
-            'id' => 3,
-            'title' => 'General discussion2',
-            'author_id' => 1
-        ));
-        
-         
-        ForumCategory::create(array(
-            'group_id' => 1,
-            'title' => 'Test Category 0.1',
-            'author_id' => 1
-        ));
-        ForumCategory::create(array(
-            'group_id' => 1,
-            'title' => 'Test Category 0.2',
-            'author_id' => 2
-        ));
-        ForumCategory::create(array(
-            'group_id' => 1,
-            'title' => 'Test Category 0.3',
-            'author_id' => 3
-        ));
-        ForumCategory::create(array(
-            'group_id' => 2,
-            'title' => 'Test Category 1.1',
-            'author_id' => 2
-        ));
-        ForumCategory::create(array(
-            'group_id' => 2,
-            'title' => 'Test Category 1.2',
-            'author_id' => 3
-        ));
-        ForumCategory::create(array(
-            'group_id' => 2,
-            'title' => 'Test Category 1.3',
-            'author_id' => 4
-        ));
-        ForumThread::create(array(
-            'group_id' => 1,
-            'category_id' => 1,
-            'title' => 'Hallo iedereen',
-            'body' => 'Hallo iedereen'
-        ));
-        ForumThread::create(array(
-            'group_id' => 1,
-            'category_id' => 1,
-            'title' => 'Hallo iedereen hier',
-            'body' => 'Hallo hier'
-        ));
-        ForumComment::create(array(
-            'group_id' => 1,
-            'body' => 'Hallo',
-            'author_id' => 1,
-            'category_id' => 1,
-            'thread_id' => 1
-        ));
-        ForumComment::create(array(
-            'group_id' => 1,
-            'body' => 'Hallo2',
-            'author_id' => 1,
-            'category_id' => 1,
-            'thread_id' => 2
-        ));
-         * 
-         */
     }
 
 }

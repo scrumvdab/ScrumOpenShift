@@ -39,6 +39,8 @@ return array(
     'CreateForumCommentsTable' => $baseDir . '/app/database/migrations/2014_10_30_095910_create_forum_comments_table.php',
     'CreateForumGroupsTable' => $baseDir . '/app/database/migrations/2014_10_30_095845_create_forum_groups_table.php',
     'CreateForumThreadsTable' => $baseDir . '/app/database/migrations/2014_10_30_095924_create_forum_threads_table.php',
+    'CreateForumVotes' => $baseDir . '/app/database/migrations/2014_12_05_105734_create_forum_votes.php',
+    'CreateForumVotingIp' => $baseDir . '/app/database/migrations/2014_12_05_101102_create_forum_voting_ip.php',
     'CreateUsersTable' => $baseDir . '/app/database/migrations/2014_10_30_095829_create_users_table.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
     'Crypt_Base' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',

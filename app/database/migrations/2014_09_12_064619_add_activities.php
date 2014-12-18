@@ -11,10 +11,22 @@ class AddActivities extends Migration {
      * @return void
      */
     public function up() {
-         DB::table('activities')->insert(array(
-            'title' => 'Frietjes boefen',
-            'body' => 'Dit is een test, blablablabla',
-            'place' => 'Wevelgem',
+        DB::table('activities')->insert(array(
+            'title' => 'Bezoek Hopmuseum',
+            'body' => 'Wat was het toch weer fijn :)',
+            'place' => 'Poperinge',
+            'date_start' => '2014/12/04',
+            'date_end' => '2014/12/04',
+            'time_start' => '08:30',
+            'time_end' => '16:00',
+            'created_at' => date('Y-m-d H:m:s'),
+            'updated_at' => date('Y-m-d H:m:s')
+        ));
+
+        DB::table('activities')->insert(array(
+            'title' => 'Sinterklaasfeest',
+            'body' => 'Wie zoet is krijgt lekkers, wie stout is een klets om zijn oren!',
+            'place' => 'De Spiegel',
             'date_start' => '2014/11/12',
             'date_end' => '2014/11/13',
             'time_start' => '11:00',

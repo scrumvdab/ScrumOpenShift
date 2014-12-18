@@ -4,11 +4,19 @@
     <div class="navbar">
         <div class="jumbotron" style="min-height:700px">
             <div class="container">
-                @if(Session::has('success'))
-                <div class="alert alert-success">{{ Session::get('success') }}</div>
-                @elseif (Session::has('fail'))
-                <div class="alert alert-danger">{{ Session::get('fail') }}</div>
-                @endif
+                <div id="popup_warning">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success alert-dismissible " role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        {{ Session::get('success') }}
+                    </div>
+                    @elseif (Session::has('fail'))
+                    <div class="alert alert-fail alert-dismissible " role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        {{ Session::get('fail') }}
+                    </div>
+                    @endif
+                </div>
                 <ol class="breadcrumb">
                     <li><a href="{{ URL::route('forum-home') }}">Forums</a></li>
                     <li class="active">{{ $category->title }}</li>
@@ -77,7 +85,6 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Maak ongedaan</button>
                                 <a href="" type="button" class="btn btn-primary" id="btn_delete_category">Verwijder</a>
-
                             </div>
                         </div>
                     </div>

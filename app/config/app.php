@@ -109,7 +109,7 @@ return array(
         'Zizaco\Confide\ServiceProvider',
         'Golonka\BBCode\BBCodeParserServiceProvider', 
         'Thujohn\Pdf\PdfServiceProvider',
-        'Smalldogs\Html5inputs\Html5InputsServiceProvider',
+        'Smalldogs\Html5inputs\Html5InputsServiceProvider', 
     ),
     /*
       |--------------------------------------------------------------------------

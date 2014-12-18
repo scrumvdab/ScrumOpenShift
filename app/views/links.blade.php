@@ -151,6 +151,11 @@
         position: 'right'
     });
 </script>
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
 {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js') }}
 {{ HTML::script('bootstrap/js/bootstrap.min.js') }}
 {{ HTML::script("js/jquery-live-preview.js") }}

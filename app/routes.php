@@ -115,3 +115,13 @@ Route::group(array('before' => 'auth'), function() {
 Route::get('add', 'ActiviteitenController@add');
 
 Route::get('add_activity', 'ActiviteitenController@add_activity');
+
+Route::get('edit', 'ActiviteitenController@edit');
+
+Route::put('edit_activity', 'ActiviteitenController@edit_activity');
+
+Route::get('galery', 'ActiviteitenController@galery');
+
+Route::get('vote', 'ForumController@vote');
+
+Route::get('upload_fotos', 'ActiviteitenController@upload');

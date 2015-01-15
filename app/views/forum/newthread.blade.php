@@ -4,19 +4,11 @@
     <div class="navbar">
         <div class="jumbotron" style="min-height:700px">
             <div class="container">
-                <div id="popup_warning">
-                    @if(Session::has('success'))
-                    <div class="alert alert-success alert-dismissible " role="alert">
-                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        {{ Session::get('success') }}
-                    </div>
-                    @elseif (Session::has('fail'))
-                    <div class="alert alert-fail alert-dismissible " role="alert">
-                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        {{ Session::get('fail') }}
-                    </div>
-                    @endif
-                </div>
+                @if(Session::has('success'))
+                <div class="alert alert-success">{{ Session::get('success') }}</div>
+                @elseif (Session::has('fail'))
+                <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+                @endif
                 <h1>Nieuw onderwerp</h1>
 
                 <form action="{{ URL::route('forum-store-thread', $id) }}" method="post">

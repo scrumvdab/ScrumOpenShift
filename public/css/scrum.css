@@ -440,6 +440,67 @@ footer.container{
 .panel-primary>.panel-heading{
     background-color: #428bca; /*donkerblauw*/
 }
+
+.avatar{
+    border:1px red;
+    height:70px;
+    width:70px;
+    float:left;
+    margin-right: 10px;
+}
+#afzender{
+    float: left;
+    width: 100%;
+}
+
+.afzender{
+    float: right;
+    margin-right: 10px;
+}
+.afzender h5{
+    font-size: 12px;
+    padding:0;
+    margin: 0;
+}
+
+.comment{
+    padding:1em;
+    font-weight: normal;
+    font-size: 12px;
+    float: left;
+}
+
+#content_forum h2{
+    margin-top: 0;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+#content_forum p{
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.well{
+    overflow: hidden;
+    padding: 1em;
+}
+.thread_title{
+    text-decoration:underline;
+    float: left;
+    width: 100%;
+}
+
+.list-group{
+    float: left;
+    width: 100%;
+}
+
+.list-group-item{
+    overflow: hidden;
+    border-radius: 2px;
+}
 /******************************************************************************/
 /**** MEDIA QUERRIES ****/
 @media (max-width:500px) {

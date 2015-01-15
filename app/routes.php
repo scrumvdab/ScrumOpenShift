@@ -80,6 +80,8 @@ Route::group(array('prefix' => '/forum'), function() {
         Route::get('/category/{id}/delete', array('uses' => 'ForumController@deleteCategory', 'as' => 'forum-delete-category'));
         Route::get('/thread/{id}/delete', array('uses' => 'ForumController@deleteThread', 'as' => 'forum-delete-thread'));
         Route::get('/comment/{id}/delete', array('uses' => 'ForumController@deleteComment', 'as' => 'forum-delete-comment'));
+        Route::get('/reply/{id}/delete', array('uses' => 'ForumController@deleteReply', 'as' => 'forum-delete-reply'));
+        Route::get('/replyreply/{id}/delete', array('uses' => 'ForumController@deleteReplyReply', 'as' => 'forum-delete-reply-reply'));
 
         Route::group(array('before' => 'csrf'), function() {
             Route::post('/category/{id}/new', array('uses' => 'ForumController@storeCategory', 'as' => 'forum-store-category'));
@@ -93,6 +95,8 @@ Route::group(array('prefix' => '/forum'), function() {
         Route::group(array('before' => 'csrf'), function() {
             Route::post('/thread/{id}/new', array('uses' => 'ForumController@storeThread', 'as' => 'forum-store-thread'));
             Route::post('/comment/{id}/new', array('uses' => 'ForumController@storeComment', 'as' => 'forum-store-comment'));
+            Route::post('/reply/{id}/new', array('uses' => 'ForumController@storeReply', 'as' => 'forum-store-reply'));
+            Route::post('/replyreply/{id}/new', array('uses' => 'ForumController@storeReplyReply', 'as' => 'forum-store-reply-reply'));
         });
     });
 });

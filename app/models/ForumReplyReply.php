@@ -1,9 +1,9 @@
 <?php
 
-class ForumComment extends Eloquent {
+class ForumReplyReply extends Eloquent {
 
-    protected $table = 'forum_comments';
-
+    protected $table = 'forum_replies_replies';
+    
     public function group() {
         $this->belongsTo('ForumGroup');
     }
@@ -15,16 +15,17 @@ class ForumComment extends Eloquent {
     public function thread() {
         $this->belongsTo('ForumThread');
     }
-     
-    public function replies() {
-        return $this->hasMany('ForumReply', 'comment_id');
+    
+    public function comment() {
+        $this->belongsTo('ForumComment');
     }
     
-    public function repliesreplies() {
-        return $this->hasMany('ForumReplyReply', 'comment_id');
+    public function replies() {
+        $this->belongsTo('ForumReply');
     }
 
     public function author() {
         return $this->belongsTo('User');
     }
+
 }

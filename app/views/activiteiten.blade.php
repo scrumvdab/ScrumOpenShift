@@ -30,11 +30,13 @@
                         {{ Form::submit("Bekijk foto's", array('class'=>'send-btn')) }}
                         {{ Form::close() }}
                     </div>
+                    @if (Auth::check() && Auth::user()->isAdmin())
                     <div id="edit_activity_button" style="float:right;">
                         {{ Form::open(array('url'=>'edit', 'method'=>'put')) }}
                         {{ Form::submit("aanpassen", array('class'=>'send-btn')) }}
                         {{ Form::close() }}
                     </div>
+                    @endif
                     <div id="accordion_body">
                         {{ $activity->body }}
                     </div>

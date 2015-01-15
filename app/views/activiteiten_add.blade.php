@@ -8,6 +8,33 @@
         <h2>Activiteiten toevoegen</h2>
         {{ Form::open(array('url'=>'add_activity', 'class'=>'form-signup', 'method' => 'get')) }}
        <!-- {{ Form::open(array('url'=>'activiteiten/change', 'class'=>'form-signup')) }}-->
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+       
+        {{ Form::label('title', 'Naam: '); }}
+        {{ Form::text('title', null, array('class'=>'input-block-level', 'placeholder'=>'Naam activiteit')) }}<br>
+        {{ Form::label('place', 'Plaats: '); }}
+        {{ Form::text('place', null, array('class'=>'input-block-level', 'placeholder'=>'Plaats activiteit')) }}<br>
+        {{ Form::label('body', 'Beschrijving: '); }}
+        {{ Form::textarea('body', null, array('style' => 'width: 80%')) }}<br>
+        {{ Form::label('date_start', 'Begin datum: '); }}
+        {{ Form::text('date_start', null, array('class'=>'input-block-level', 'placeholder'=>'Begin activiteit')) }}<br>
+        {{ Form::label('time_start', 'Beginuur: '); }}
+        {{ Form::text('time_start', null, array('class'=>'input-block-level', 'placeholder'=>'Beginuur activiteit')) }}<br>
+        {{ Form::label('date_end', 'Eind datum: '); }}
+        {{ Form::text('date_end', null, array('class'=>'input-block-level', 'placeholder'=>'Einde activiteit')) }}<br>
+        {{ Form::label('time_end', 'Einduur: '); }}
+        {{ Form::text('time_end', null, array('class'=>'input-block-level', 'placeholder'=>'Beginuur activiteit')) }}<br>
+        {{ Form::close() }}
+        
+        
+        
+        {{ Form::open(array('url'=>'test','method'=>'post', 'files'=>true)) }}
+        <!--
+        
         {{ Form::label('title', 'Naam: '); }}
         {{ Form::text('title', null, array('class'=>'input-block-level', 'placeholder'=>'Naam activiteit')) }}<br>
         {{ Form::label('place', 'Plaats: '); }}
@@ -23,22 +50,25 @@
         {{ Form::label('time_end', 'Einduur: '); }}
         {{ Form::time('time_end', null, array('class'=>'input-block-level', 'placeholder'=>'Beginuur activiteit')) }}<br>
         {{ Form::close() }}
-        {{ Form::open(array('url'=>'test','method'=>'post', 'files'=>true)) }}
+        -->
+        <!--
         <div class="control-group">
             <div class="controls">
                 {{ Form::file('image') }}
                 <p class="errors">{{$errors->first('image')}}</p>
                 @if(Session::has('error'))
                 <p class="errors">{{ Session::get('error') }}</p>
+                
                 @endif
             </div>
         </div>
+        -->
         <div id="success"> </div>
         {{ Form::submit('Bevestig input', array('class'=>'btn btn-primary'))}}
         {{ Form::close() }}
     </div>
 </div>
-
+<!--
 <script type="text/javascript">
     $(function () {
         $.datepicker.regional['nl'] = {clearText: 'Wissen', clearStatus: '',
@@ -79,6 +109,7 @@
         });
     });
 </script>
+-->
 
 {{ HTML::style('bootstrap/css/jquery-ui.css') }}
 {{ HTML::style('fullcalendar/fullcalendar.css') }}

@@ -24,10 +24,10 @@ class ActiviteitenController extends BaseController {
                     'title' => 'required|min:2|max:100',
                     'body' => 'required|min:2',
                     'place' => 'required|min:2|max:50',
-                    'date_start' => 'required',
+                   /* 'date_start' => 'required',
                     'date_end' => 'required',
                     'time_start' => 'required',
-                    'time_end' => 'required',
+                    'time_end' => 'required'*/
                         )
         ); //close validation
         //If validation fail send back the Input with errors
@@ -38,13 +38,13 @@ class ActiviteitenController extends BaseController {
         } else {
             // validation has passed, update activiteiten in DB   
             $activities = new Activity();
-            $activities->date_start = Input::get('date_start');
-            $activities->date_end = Input::get('date_end');
-            $activities->time_start = Input::get('time_start');
-            $activities->time_end = Input::get('time_end');
             $activities->title = Input::get('title');
-            $activities->body = Input::get('body');
             $activities->place = Input::get('place');
+            $activities->body = Input::get('body');
+            $activities->date_start = Input::get('date_start');
+            $activities->time_start = Input::get('time_start');
+            $activities->date_end = Input::get('date_end');
+            $activities->time_end = Input::get('time_end');  
             $activities->save();
             
             return Redirect::to('activiteiten')->with('message', 'Activiteit is succesvol toegevoegd');
@@ -73,15 +73,15 @@ class ActiviteitenController extends BaseController {
         } else {
             // validation has passed, update user in DB       
             $activities = new Activity();
-            $activities->date_start = Input::get('date_start');
-            $activities->date_end = Input::get('date_end');
-            $activities->time_start = Input::get('time_start');
-            $activities->time_end = Input::get('time_end');
             $activities->title = Input::get('title');
-            $activities->body = Input::get('body');
             $activities->place = Input::get('place');
+            $activities->body = Input::get('body');
+            $activities->date_start = Input::get('date_start');
+            $activities->time_start = Input::get('time_start');
+            $activities->date_end = Input::get('date_end');
+            $activities->time_end = Input::get('time_end');  
             $activities->save();
-
+            
             return Redirect::to('activiteiten')->with('message', 'Succesvol aangepast!');
         }
     }

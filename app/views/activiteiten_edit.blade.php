@@ -3,8 +3,8 @@
 @section('content')
 <div class="container" id="content">
     <div class="jumbotron">
-        {{ Form::open(array('url'=>'edit_activity/update', 'class' => 'form-edit', 'method' => 'put')) }}
         <h2 class="form-signup-heading">Veranderingen aanbrengen aan je profielgegevens</h2>
+        {{ Form::open(array('url'=>'edit_activity', 'class' => 'form-edit', 'method' => 'put')) }}
         <ul>
             @foreach($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -31,13 +31,16 @@
         
         {{ Form::label('time_end', 'Einduur: '); }}
         {{ Form::time('time_end', Input::old('time_end', $activities->time_end), array('class'=>'input-block-level', 'placeholder'=>'Beginuur activiteit')) }}<br>
-        
-        <div id="success"> </div>
+        <div id="success"></div>
         {{ Form::submit('Activiteiten aanpassen', array('class'=>'btn btn-primary'))}}
         {{ Form::close() }}
         
     </div>
 </div>
 {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js') }}
+{{ HTML::style('bootstrap/css/jquery-ui.css') }}
+{{ HTML::style('fullcalendar/fullcalendar.css') }}
+{{ HTML::script('http://code.jquery.com/jquery-1.10.2.js') }}
+{{ HTML::script('http://code.jquery.com/ui/1.11.1/jquery-ui.js') }}
 {{ HTML::script('bootstrap/js/bootstrap.min.js') }}
 @stop

@@ -18,4 +18,14 @@ class ForumGroup extends Eloquent
 	{
 		return $this->hasMany('ForumComment', 'group_id');
 	}
+        
+        public function replies()
+	{
+		return $this->hasMany('ForumReply', 'group_id');
+	}
+        
+        public function repliesreplies()
+	{
+		return $this->hasMany('ForumReplyReply', 'group_id');
+	}
 }

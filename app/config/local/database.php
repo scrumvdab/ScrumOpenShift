@@ -19,7 +19,7 @@ return array(
 	*/
 
 	'connections' => array(
-/*
+
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
@@ -30,7 +30,7 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
-*/
+/*
                 'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => getenv('OPENSHIFT_MYSQL_DB_HOST'),
@@ -42,7 +42,7 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
                     ),
-
+*/
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',

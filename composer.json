@@ -6,7 +6,7 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",         "zizaco/confide": "~4.0@dev",
-		"thujohn/pdf": "dev-master", "guzzlehttp/guzzle": "~4.0",
+		"guzzlehttp/guzzle": "~4.0",
                 "golonka/bbcodeparser": "1.1.*",
 		"smalldogs/html5inputs": "dev-master"
 	},

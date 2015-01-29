@@ -107,9 +107,7 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Zizaco\Confide\ServiceProvider',
-        'Golonka\BBCode\BBCodeParserServiceProvider', 
-        'Thujohn\Pdf\PdfServiceProvider',
-        'Smalldogs\Html5inputs\Html5InputsServiceProvider', 
+        'Golonka\BBCode\BBCodeParserServiceProvider',  
     ),
     /*
       |--------------------------------------------------------------------------
@@ -173,7 +171,5 @@ return array(
         'View' => 'Illuminate\Support\Facades\View',
         'Confide' => 'Zizaco\Confide\Facade',
         'BBCode' => 'Golonka\BBCode\Facades\BBCodeParser',
-        'PDF' => 'Thujohn\Pdf\PdfFacade'
-        
     ),
 );
